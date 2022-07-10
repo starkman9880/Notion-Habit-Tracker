@@ -1,0 +1,215 @@
+:root {
+    --body-color: #fff;
+    --sidenav-color: #f7f6f3;
+    --main-text-color: #37352f;
+    --secondary-text-color: #898883;
+    --button-bg-color: #2eaadc;
+    --button-text-color: #f4fbfd;
+    --active-green: #b8e297;
+    --user-select-color: rgb(181 216 230);
+    --table-color: rgb(223 223 222);
+    --table-text-color: rgb(150 149 146);
+    --right-width: calc(100vw - 250px);
+    --font: 'Roboto', sans-serif;;
+}
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--body-color);
+    font-family: var(--font);
+    overflow-x: hidden;
+}
+/* change color when user highlights text */
+h::selection, p::selection, p1::selection, a::selection, td::selection, th::selection, img::selection, span::selection {
+    background-color: var(--user-select-color);
+}
+h {
+    font-size: 2em;
+    font-weight: 600;
+    line-height: 1.6;
+    color: var(--main-text-color);
+    text-transform: capitalize;
+    max-width: 80%;
+}
+p {
+    font-size: 1em;
+    font-weight: 400;
+    margin: 5px;
+    color: var(--main-text-color);
+}
+p1 {
+    font-size: 0.7em;
+    color: var(--main-text-color);
+    display: block;
+    line-height: 1.6;
+    max-width: 90%;
+    margin: 0 auto;
+}
+/* header elements */
+header {
+    position: absolute;
+    width: var(--right-width);
+    right:0;
+    top:0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.title {
+    display: inline-flex;
+    flex-direction: row;
+    text-transform: capitalize;
+    font-size: 0.7em;
+    padding: 10px;
+    color: var(--main-text-color);
+}
+.title a {
+    text-decoration: none;
+    color:  var(--main-text-color);
+    font-size: 0.9em;
+    font-weight: 400;
+    margin: 10px;
+}
+.title span {
+    font-size: 1em;
+    font-weight: 700;
+    margin: 10px 2px;
+}
+#small-emoji {
+   height: 15px;
+   width: 15px;
+   margin: 5px;
+}
+/* end of header elements */
+/* side nav elements */
+nav {
+    height: 100vh;
+    width: 250px;
+    background-color: var(--sidenav-color);
+    position: absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    display: flex;
+    flex-direction: column;
+}
+nav a{
+    text-decoration: none;
+    color: var(--secondary-text-color);
+    font-size: 0.65em;
+    padding: 5px;
+    text-transform: capitalize;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    margin: 1px;
+    padding-left: 10px;
+}
+.row span {
+    font-size: 0.8em;
+    color: var(--secondary-text-color);
+    margin: 5px 2px;
+}
+#user span {
+    margin-top: 10px;
+    font-size: 1em;
+    color: var(--secondary-text-color);
+}
+#user {
+    color: var(--main-text-color);
+    font-size: 0.7em;
+    font-weight: 400;
+}
+#user::before {
+    content: "A";
+    display: inline-block;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    color: rgb(219, 216, 216);
+    background-color: slateblue;
+}
+.active {
+  border-bottom: 2px solid var(--active-green);
+}
+/* end of side nav */
+/* habit tracker heading */
+.habit-tracker-wrapper {
+   position: absolute;
+   margin: 0 auto;
+   right: 0;
+   width: var(--right-width);
+   top: 10vh;
+}
+.habit-header {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+#snicker-emoji-large {
+    height: 40px;
+    width: 40px;
+    margin-right: 2px;
+    margin-left: 5%;
+}
+/* end of tracker heading */
+/* todo table*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid var(--table-color);
+    width: calc(var(--right-width) - 20%);
+    margin: 0 auto;
+    text-transform: capitalize;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+td {
+    color: var(--main-text-color);
+    border: 1px solid var(--table-color);
+    font-size: 0.7em;
+}
+th {
+    color: var(--table-text-color);
+    font-size: 0.8em;
+    font-weight: 400;
+    border: 1px solid var(--table-color);
+}
+/* respinsive */
+@media screen and (max-width: 600px) {
+    nav {
+        display: none;
+    }
+    header {
+        min-width: 100vw;
+        left:0;
+        right:0;
+    }
+    .title {
+        font-size: 0.6em;
+        margin: 15px;
+    }
+    .habit-tracker-wrapper {
+        min-width: 98vw;
+        left:0;
+    }
+}
+@media screen and (min-width: 900px) {
+  nav {
+    width: 200px;
+    min-height: 100%;
+  }
+  header {
+    width: calc(var(--right-width) + 40px);
+  }
+  .habit-tracker-wrapper {
+    width: calc(var(--right-width) + 45px);
+  }
+  
+}
